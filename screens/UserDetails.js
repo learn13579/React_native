@@ -1,6 +1,6 @@
 import React from "react";
 import {StyleSheet} from "react-native";
-import {View, Text, Button, TouchableOpacity} from "react-native";
+import {View, Text} from "react-native";
 
 const UserDetails = (props) => {
     console.log(props);
@@ -14,7 +14,15 @@ const UserDetails = (props) => {
             Surname: {data.username},
             Email: {data.email},
             Phone: {data.phone},
-            Website: {data.website}
+
+            Address: city: {data.address.city},
+            street: {data.address.street},
+            suite: {data.address.suite},
+
+            Website: {data.website},
+            Company name: {data.company.name},
+            company catch phrase:  {data.company.catchPhrase},
+
             {/*Id user: <b>{data.id}</b>*/}
             {/*<br/>Name: <b>{data.name}</b>*/}
             {/*<br/>Surname: <b>{data.username}</b>*/}

@@ -1,30 +1,30 @@
 import React, {useEffect, useState} from "react";
 import {FlatList, StyleSheet} from "react-native";
-import {View, Text, Button, TouchableOpacity} from "react-native";
-import {getUsers} from "../services/api.service";
-import User from "./User";
+import {View} from "react-native";
+import {getPosts} from "../services/post.service";
+import Post from "./Post";
 
-const Users = (props) => {
+const Posts = (props) => {
     console.log(props);
 
     let {navigation} = props;
 
-    let [users, setUsers] = useState();
+    let [posts, setPosts] = useState();
 
     useEffect(() => {
-        getUsers().then(value => setUsers([...value]))
+        getPosts().then(value => setPosts([...value]))
     }, []);
 
     return <View>
         <FlatList
-            data={users}
-            renderItem={({item}) => <User item={item} nav={navigation}/>}
+            data={posts}
+            renderItem={({item}) => <Post item={item} nav={navigation}/>}
             keyExtractor={item => '' + item.id}
         />
     </View>;
 
 };
-export default Users;
+export default Posts;
 
 const style = StyleSheet.create({
     usersBox: {
